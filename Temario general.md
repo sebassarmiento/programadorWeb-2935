@@ -7,14 +7,15 @@
 - 1.5	Variables
 - 1.6	Tipos de valores
 - 1.7	Operadores aritméticos
-- 1.8	Operadores de comparación
+- 1.8 Web API's y funciones de alto nivel útiles
 
 # 2 Control de flujo
 
 - 2.1	Condicionales
-- 2.2	Operadores lógicos
-- 2.3	Ciclos e iteraciones
-- 2.4	Sentencias `break` y `continue`
+- 2.2	Operadores de comparación
+- 2.3	Operadores lógicos
+- 2.4	Ciclos e iteraciones
+- 2.5	Sentencias `break` y `continue`
 
 # 3 Funciones
 	

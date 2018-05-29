@@ -19,10 +19,7 @@
    - `*`
    - `/`
    - `%`
-8. Operadores de comparación
-   - `===`
-   - `!==`
-   - `<`
-   - `>`
-   - `>=`
-   - `<=`
+8. Web API's y funciones de alto nivel útiles
+   - `prompt()`
+   - `console.log()`
+   - `parseInt()`

@@ -3,14 +3,21 @@
 1. Condicionales
    - `ìf`
    - `switch`
-2. Operadores lógicos
+2. Operadores de comparación
+   - `===`
+   - `!==`
+   - `<`
+   - `>`
+   - `>=`
+   - `<=`
+3. Operadores lógicos
    - `!`
    - `&&`
    - `||`
-3. Ciclos e iterciones
+4. Ciclos e iterciones
    - `for`
    - `while`
    - `do while`
-4. Sentencias
+5. Sentencias
    - `break`
    - `continue`

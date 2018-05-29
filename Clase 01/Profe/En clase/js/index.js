@@ -1,3 +1,5 @@
+// Primera clase
+
 // 5. Variables
 
 // 6. Tipos de valores

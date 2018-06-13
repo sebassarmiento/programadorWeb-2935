@@ -34,3 +34,18 @@ var auto3 = new Auto('Spider', 'Ferrari', 2008)
 
 
 console.log(auto1.getCarName())
+
+
+// GUARDAR LOS 3 AUTOS EN UN SOLO ARRAY Y CREAR EL FOR
+
+var newCars = []
+var car
+var newCar
+
+for (var i = 0; i < cars.length; i++) {
+  car = cars[i]
+  newCar = new Auto(car.model, car.brand, car.year)
+  newCars.push(newCar)
+}
+
+console.log(newCars[2].getCarName())

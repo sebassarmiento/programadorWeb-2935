@@ -1,23 +1,3 @@
-var students = [
-  {
-    firstName: 'Juan',
-    lastName: 'Pérez',
-    dni: 45678987,
-    email: 'juan@gmail.com'
-  },
-  {
-    firstName: 'Ana',
-    lastName: 'Fernandez',
-    dni: 45678989,
-    email: 'ana@gmail.com'
-  },
-  {
-    firstName: 'Pedro',
-    lastName: 'Mármol',
-    dni: 45678956,
-    email: 'pedro@gmail.com'
-  }
-]
 
 var Alumno = function (firstName, lastName, dni, email) {
   var id = dni
@@ -56,3 +36,37 @@ console.log(alumno2.getFullName())
 console.log(alumno3)
 console.log(alumno3.getId())
 console.log(alumno3.getFullName())
+
+var students = [
+  {
+    firstName: 'Juan',
+    lastName: 'Pérez',
+    dni: 45678987,
+    email: 'juan@gmail.com'
+  },
+  {
+    firstName: 'Ana',
+    lastName: 'Fernandez',
+    dni: 45678989,
+    email: 'ana@gmail.com'
+  },
+  {
+    firstName: 'Pedro',
+    lastName: 'Mármol',
+    dni: 45678956,
+    email: 'pedro@gmail.com'
+  }
+]
+
+var student
+var newStudent
+var newStudents = []
+
+for (var i = 0; i < students.length; i++) {
+  student = students[i]
+  newStudent = new Alumno(student.firstName, student.lastName, student.dni, student.email)
+  newStudents.push(newStudent)
+}
+
+console.log(newStudents[1].getId())
+console.log(newStudents[2].getFullName())

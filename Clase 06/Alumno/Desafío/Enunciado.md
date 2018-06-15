@@ -15,4 +15,5 @@ includesText(2, 'Pa') // Deberá devolver false
 **Documentación:**
 
 [toUpperCase](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase)
+
 [indexOf](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf)

@@ -17,10 +17,12 @@
 ```js
 var list = '[ "Juan", "Pedro", "María" ]'
 
+sessionStorage.setItem('list', list)
+
 localStorage.setItem('list', list)
 ```
 
-> Guarda en el localStorage el JSON que representa un Array de nombres en la key `list`
+> El primer método guarda en el sessionStorage el JSON que representa un Array de nombres en la key `list`, el segundo método hace lo mismo pero en el localStorage.
 
 ## GetItem
 

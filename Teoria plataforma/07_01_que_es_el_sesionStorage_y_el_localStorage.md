@@ -6,6 +6,12 @@
 
 - El LocalStorage es un objeto global que tiene el navegador con las mismas características que tiene el SessionStorage, la única diferencia es que su tiempo de duración es ilimitado por lo cual la información se mantiene guardada aun cuando se cierre el navegador o la pestaña.
 
+> El localStorgae puede verse en las devTools de Chorme en la solapa de Application como muestra la siguiente foto:
+
+![LocalStorage](07_01_captura_localStorage.png)
+
+- Acá podemos ver los valores que ya tiene cargados así como los nuevos que vayamos agregando, pisando o eliminando.
+
 ## Métodos
 
 - Tanto el SessionStorage como LocalStorage tiene los mismos métodos principales.

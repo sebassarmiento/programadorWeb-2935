@@ -18,7 +18,7 @@
 
 - Tanto el SessionStorage como LocalStorage tiene los mismos métodos principales.
 
-## SetItem
+### SetItem
 
 - El método `setItem(key, value)` recibe como parámetro una key y un valor y como resultado guarda el valor en la key pasada como parámetro, si ya existe un valor lo pisa.
 
@@ -32,7 +32,7 @@ localStorage.setItem('list', list)
 
 > El primer método guarda en el sessionStorage el JSON que representa un Array de nombres en la key `list`, el segundo método hace lo mismo pero en el localStorage.
 
-## GetItem
+### GetItem
 
 - El método `getItem(key)` recibe como parámetro una key y devuelve el valor almacenado en esa key, en caso de que no exista devuelve `null`
 
@@ -44,7 +44,7 @@ console.log(list) // Muestra en consola el JSON que guardamos anteriormente '[ "
 
 > Usamos el método getItem para recuperar el valor guardado en el localStorage, bajo la key `list`.
 
-## RemoveItem
+### RemoveItem
 
 - El método `removeItem(key)` recibe como parámetro una key y elimina el valor almacenado en esa así como la key.
 

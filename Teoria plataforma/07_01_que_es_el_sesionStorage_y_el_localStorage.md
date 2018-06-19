@@ -1,16 +1,18 @@
 # SessionStorage
 
-- El SessionStorage es un objeto global que tiene el navegador y que nos va a permitir persistir información durante la sesión que el usuario tenga en la página. La sesión va a durar hasta que el usuario cierre la pestaña o el navegador, cuando lo haga eso va a borrar la información guardada en este objeto. El espacio de almacenamiento es de aproximadamente 2.5mb a 5mb depende del navegador que estemos usando y actualmente esta ampliamente soportado. Este objeto suele ser un buen reemplazo de la Cookies para algunos de sus casos de uso, como también para almacenar datos como el Token de acceso o configuraciones del usuario. Al igual que un objeto la forma de ordenar los datos es con un par `key: value`, solo que en este caso el `value` se guarda siempre en formato `string`.
+- El sessionStorage es un objeto global que tiene el navegador y que nos va a permitir persistir información durante la sesión que el usuario tenga en la página. La sesión va a durar hasta que el usuario cierre la pestaña o el navegador, cuando lo haga eso va a borrar la información guardada en este objeto. El espacio de almacenamiento es de aproximadamente 2.5mb a 5mb depende del navegador que estemos usando y actualmente esta ampliamente soportado. Este objeto suele ser un buen reemplazo de la Cookies para algunos de sus casos de uso, como también para almacenar datos como el Token de acceso o configuraciones del usuario. Al igual que un objeto la forma de ordenar los datos es con un par `key: value`, solo que en este caso el `value` se guarda siempre en formato `string`.
 
 # LocalStorage
 
-- El LocalStorage es un objeto global que tiene el navegador con las mismas características que tiene el SessionStorage, la única diferencia es que su tiempo de duración es ilimitado por lo cual la información se mantiene guardada aun cuando se cierre el navegador o la pestaña.
+- El localStorage es un objeto global que tiene el navegador con las mismas características que tiene el SessionStorage, la única diferencia es que su tiempo de duración es ilimitado por lo cual la información se mantiene guardada aun cuando se cierre el navegador o la pestaña.
 
-> El localStorgae puede verse en las devTools de Chorme en la solapa de Application como muestra la siguiente foto:
+## Verlo en las devTools
+
+- El sessionStorage y el localStorgae puede verse en las devTools de Chorme en la solapa `Application` como muestra la siguiente foto
 
 ![LocalStorage](07_01_captura_localStorage.png)
 
-- Acá podemos ver los valores que ya tiene cargados así como los nuevos que vayamos agregando, pisando o eliminando.
+> Acá podemos ver los valores que ya tiene cargados así como los nuevos que vayamos agregando, pisando o eliminando.
 
 ## Métodos
 

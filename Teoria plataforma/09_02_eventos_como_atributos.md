@@ -29,3 +29,5 @@ function showBlurMessage(){
   console.log('El usuario perdió el foco')
 }
 ```
+
+> En este código al hacer click en el botón se va a mostrar un mensaje en consola que diga `'El usuario hizo click''` y al perder el foco un mensaje que diga `'El usuario perdió el foco'`.

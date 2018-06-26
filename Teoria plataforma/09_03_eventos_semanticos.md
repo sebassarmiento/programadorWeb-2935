@@ -1,6 +1,6 @@
 # Eventos semánticos
 
-- La otra forma de suscribirse a los eventos es la semántica, esto implica que la asignación de la función se da en nuestro JavaScript. Para esto tenemos que obtener el nodo del elemento que queremos suscribir y luego asignare al evento la función que queremos ejecutar.
+Para suscribirse a un evento de forma semántica vamos a buscar nuestro elemento con alguno de los métodos de `document` y le vamos a asignar al atributo encargado de manejar el evento la función que queremos que ejecute.
 
 ```html
 <input type="button" id="button" />
@@ -18,7 +18,7 @@ function showMessage(){
 
 > En este código al hacer click en el botón se va a mostrar un mensaje en consola que diga `'El usuario hizo click''`.
 
-Lo bueno de esta implementación es que si queremos registrar más de un evento simplemente los vamos agregando en el JavaScript sin ensuciar el HTML.
+Si queremos registrar más de un evento simplemente le vamos asignando nuevas funciones a los manejadores de eventos que correspondan.
 
 ```html
 <input type="button" id="button" />
@@ -41,3 +41,5 @@ function showMessageOver(){
 ```
 
 > En este código al hacer click en el botón se va a mostrar un mensaje en consola que diga `'El usuario hizo click''` y al pasar el mouse por encima un mensaje que diga `'El usuario paso el mouse sobre el botón'`.
+
+*En este caso el HTML se mantiene limpio porque solo es necesario el id en el HTML no importa cuantos manejadores de eventos le agreguemos al mismo elemento. Esto mantiene nuestro código más limpio y ordenado*

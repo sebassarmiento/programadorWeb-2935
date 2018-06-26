@@ -14,10 +14,10 @@ function showMessage(){
 
 > En este código al hacer click en el botón se va a mostrar un mensaje en consola que diga `'El usuario hizo click'`.
 
-*La desventaja de esta forma es que suele ensuciar nuestro HTML con varios atributos si queremos suscribir nuestro botón a varios eventos.*
+*La desventaja de esta forma es que suele ensuciar nuestro HTML si queremos suscribir nuestro botón a varios eventos, porque cada evento nuevo es un atributo más. Si encima a esto también le agregamos que los elementos tienen sus propios atributos como clases o estilos el asunto empeora.*
 
 ```html
-<input type="button" onclick="showMessage()" onblur="showBlurMessage()"/>
+<input type="button" onclick="showMessage()" onblur="showBlurMessage()" class="btn-primary"/>
 ```
 
 ```js

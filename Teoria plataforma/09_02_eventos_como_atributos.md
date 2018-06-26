@@ -14,10 +14,10 @@ function showMessage(){
 
 > En este código al hacer click en el botón se va a mostrar un mensaje en consola que diga `'El usuario hizo click'`.
 
-*La desventaja de esta forma es que suele ensuciar nuestro HTML si queremos suscribir nuestro botón a varios eventos, porque cada evento nuevo es un atributo más. Si encima a esto también le agregamos que los elementos tienen sus propios atributos como clases o estilos el asunto empeora.*
+*La desventaja de esta forma es que suele ensuciar nuestro HTML si queremos suscribir nuestro botón a varios eventos, porque cada evento es un atributo más. Si encima a esto también le agregamos que los elementos tienen sus propios atributos como clases o estilos el asunto empeora. Por este motivo a lo largo del curso vamos a utilizar la forma semántica.*
 
 ```html
-<input type="button" onclick="showMessage()" onblur="showBlurMessage()" class="btn-primary"/>
+<input type="button" class="btn-primary" onclick="showMessage()" onblur="showBlurMessage()" />
 ```
 
 ```js
@@ -29,5 +29,3 @@ function showBlurMessage(){
   console.log('El usuario perdió el foco')
 }
 ```
-
-*Por este motivo a lo largo del curso vamos a utilizar la forma semántica.*

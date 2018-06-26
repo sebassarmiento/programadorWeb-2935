@@ -30,13 +30,13 @@ function Student (firstName, lastName, dni, email) {
 }
 
 /**
- * Función creadora de nodos li
+ * Función que devuelve nodos li
  * @param { Student } newStudent
  * @returns Node
  */
 function createStudentNode (newStudent) {
   // Creo el nodo li
-  liNode = document.createElement('li')
+  var liNode = document.createElement('li')
 
   // Le setteo el id al nodo
   liNode.id = newStudent.getId()

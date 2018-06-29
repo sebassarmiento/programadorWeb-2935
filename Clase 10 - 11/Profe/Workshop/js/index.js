@@ -108,9 +108,7 @@ function addStudent (event) {
 
   mainListNode.appendChild(liNode)
 
-  setTimeout(() => {
-    setLocalList(LS_KEY, newStudentsList)
-  }, 10000)
+  setLocalList(LS_KEY, newStudentsList)
 
   // Limpieza del formulario
   firstNameInputNode.value = ''

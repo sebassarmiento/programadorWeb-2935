@@ -195,7 +195,6 @@ function Student(firstName, lastName, dni, email) {
  deleteDniButton.onclick = deleteStudent
 
 
-// Probando
  function deleteStudent(event){
      if(!deleteDniButton.classList.contains('disabled')){
          // No  entiendo porque si no lo parseo es type number igual
@@ -223,11 +222,13 @@ for(var i = 0;i<newStudentList.length;i++){
 }
     deleteDniButton.classList.add('disabled')
     deleteByDniInputNode.classList.remove('is-valid')
-
     // Borro el estudiante del HTML
     let studentId = document.getElementById(deleteByDniInputNode.value.toString())
     if(studentId){
         studentId.parentNode.removeChild(studentId)
+    }else{
+        console.log('No entro')
     }
+    deleteByDniInputNode.value = ''
      }
  }

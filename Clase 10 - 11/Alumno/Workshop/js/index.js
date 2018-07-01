@@ -40,6 +40,7 @@ var mainList = document.getElementById('mainList')
 for(var i = 0; i<newStudentList.length;i++){
     let eachStudent = newStudentList[i]
     let newStudentItemOnLoad = document.createElement('li')
+    newStudentItemOnLoad.id += eachStudent.dni
     newStudentItemOnLoad.classList.add('list-group-item')
     newStudentItemOnLoad.innerHTML = '<h2>'+eachStudent.firstName+'</h2>'+'<h3>DNI: '+eachStudent.dni+'</h3>'
     mainList.appendChild(newStudentItemOnLoad)
@@ -140,6 +141,7 @@ function Student(firstName, lastName, dni, email) {
         let newStudentItem = document.createElement('li')
         newStudentItem.innerHTML = '<h2>'+firstNameInputNode.value+'</h2>'+'<h3>DNI: '+dniInputNode.value+'</h3>'
         newStudentItem.classList.add('list-group-item')
+        newStudentItem.id += dniInputNode.value
         mainList.appendChild(newStudentItem)
         // Actualizar cambios en localStorage
         newStudent = new Student(
@@ -160,3 +162,72 @@ function Student(firstName, lastName, dni, email) {
       firstNameInputNode.classList.remove('is-valid')
       dniInputNode.classList.remove('is-valid')
   }
+
+
+  // Eliminar estudiante por el dni
+
+  var deleteByDniInputNode = document.getElementById('deleteDni')
+
+  var deleteDniButton = document.getElementById('deleteStudentButton')
+
+  deleteByDniInputNode.onblur = checkDni
+
+  function checkDni(event){
+      let inputNode = event.target
+    for(var i = 0;i<newStudentList.length;i++){
+        if(inputNode.value === newStudentList[i].dni){
+          var dniExists = true
+          break
+        } else{
+          var dniExists = false
+        }
+    }
+    if(dniExists === true){
+        inputNode.classList.remove('is-invalid')
+        inputNode.classList.add('is-valid')
+        deleteDniButton.classList.remove('disabled')
+    }else{
+        inputNode.classList.remove('is-valid')
+        inputNode.classList.add('is-invalid')
+    }
+ }
+
+ deleteDniButton.onclick = deleteStudent
+
+
+// Probando
+ function deleteStudent(event){
+     if(!deleteDniButton.classList.contains('disabled')){
+         // No  entiendo porque si no lo parseo es type number igual
+     for(var i = 0;i<newStudentList.length;i++){
+        if(deleteByDniInputNode.value === newStudentList[i].dni){
+            newStudentList.splice(i, 1)
+            break
+        }else{
+            console.log('No entro')
+        }
+    }
+    // Elimino lo que hay en localStorage para actualizarlo
+    localStorage.removeItem('studentsList')
+    // Recorro newStudentList actualizado para subirlo al localStorage
+for(var i = 0;i<newStudentList.length;i++){
+    localStudent = newStudentList[i]
+    newStudent = new Student(
+        localStudent.firstName,
+        localStudent.lastName,
+        localStudent.dni,
+        localStudent.email
+    )
+    let parsdeNewJson = JSON.stringify(newStudentList)
+    localStorage.setItem('studentsList', parsdeNewJson)
+}
+    deleteDniButton.classList.add('disabled')
+    deleteByDniInputNode.classList.remove('is-valid')
+
+    // Borro el estudiante del HTML
+    let studentId = document.getElementById(deleteByDniInputNode.value.toString())
+    if(studentId){
+        studentId.parentNode.removeChild(studentId)
+    }
+     }
+ }

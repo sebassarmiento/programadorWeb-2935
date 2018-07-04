@@ -42,7 +42,7 @@ for(var i = 0; i<newStudentList.length;i++){
     let newStudentItemOnLoad = document.createElement('li')
     newStudentItemOnLoad.id += eachStudent.dni
     newStudentItemOnLoad.classList.add('list-group-item')
-    newStudentItemOnLoad.innerHTML = '<h2>'+eachStudent.firstName+'</h2>'+'<h3>DNI: '+eachStudent.dni+'</h3>'
+    newStudentItemOnLoad.innerHTML = '<h2>'+eachStudent.firstName+'</h2>'+'<h2>'+eachStudent.lastName+'</h2>'+'<h3>DNI: '+eachStudent.dni+'</h3>'+'<h2>'+eachStudent.email+'</h2>'
     mainList.appendChild(newStudentItemOnLoad)
 }
 
@@ -86,13 +86,18 @@ function Student(firstName, lastName, dni, email) {
           inputNode.classList.add('is-valid')
       }
       // Habilito el boton si ambos (Nombre y dni) son validos
-      if(dniInputNode.classList.contains('is-valid') && firstNameInputNode.classList.contains('is-valid')){
+      if(dniInputNode.classList.contains('is-valid') && firstNameInputNode.classList.contains('is-valid') && emailInputNode.classList.contains('is-valid')){
         buttonAddStudent.classList.remove('disabled')
     }else{
         buttonAddStudent.classList.add('disabled')
     }
       
   }
+
+  // Levantar apellido
+
+  var lastNameInputNode = document.getElementById('lastName')
+
 
   // LEVANTAR DNI Y VALIDARLO
 
@@ -123,12 +128,34 @@ function Student(firstName, lastName, dni, email) {
       }
 
       // Habilito el boton
-      if(dniInputNode.classList.contains('is-valid') && firstNameInputNode.classList.contains('is-valid')){
+      if(dniInputNode.classList.contains('is-valid') && firstNameInputNode.classList.contains('is-valid')  && emailInputNode.classList.contains('is-valid')){
           buttonAddStudent.classList.remove('disabled')
       }else{
           buttonAddStudent.classList.add('disabled')
       }
   }
+
+  // Levantar Email
+
+  var emailInputNode = document.getElementById('email')
+
+  emailInputNode.onblur = checkValidEmail
+
+  function checkValidEmail(event){
+    var node = event.target
+    if(node.value.indexOf("@")>=0&&node.value.indexOf('.')>=0){
+        node.classList.remove('is-invalid')
+        node.classList.add('is-valid')
+    }else{
+        node.classList.remove('is-valid')
+        node.classList.add('is-invalid')
+    }
+    if(dniInputNode.classList.contains('is-valid') && firstNameInputNode.classList.contains('is-valid')  && emailInputNode.classList.contains('is-valid')){
+        buttonAddStudent.classList.remove('disabled')
+    }else{
+        buttonAddStudent.classList.add('disabled')
+    }
+}
 
   // BOTON AGREGAR ALUMNO
 
@@ -139,16 +166,16 @@ function Student(firstName, lastName, dni, email) {
   function enviarDatos(){
       if(!buttonAddStudent.classList.contains('disabled')){
         let newStudentItem = document.createElement('li')
-        newStudentItem.innerHTML = '<h2>'+firstNameInputNode.value+'</h2>'+'<h3>DNI: '+dniInputNode.value+'</h3>'
+        newStudentItem.innerHTML = '<h2>'+firstNameInputNode.value+'</h2>'+'<h2>'+lastNameInputNode.value+'</h2>'+'<h3>DNI: '+dniInputNode.value+'</h3>'+'<h2>'+emailInputNode.value+'</h2>'
         newStudentItem.classList.add('list-group-item')
         newStudentItem.id += dniInputNode.value
         mainList.appendChild(newStudentItem)
         // Actualizar cambios en localStorage
         newStudent = new Student(
             firstNameInputNode.value,
-            null,
+            lastNameInputNode.value,
             dniInputNode.value,
-            null
+            emailInputNode.value
         )
         newStudentList.push(newStudent)
   
@@ -157,10 +184,13 @@ function Student(firstName, lastName, dni, email) {
       }
       // Limpiar el formulario
       firstNameInputNode.value = ''
+      lastNameInputNode.value = ''
       dniInputNode.value = ''
+      emailInputNode.value = ''
       buttonAddStudent.classList.add('disabled')
       firstNameInputNode.classList.remove('is-valid')
       dniInputNode.classList.remove('is-valid')
+      emailInputNode.classList.remove('is-valid')
   }
 
 
@@ -230,5 +260,31 @@ for(var i = 0;i<newStudentList.length;i++){
         console.log('No entro')
     }
     deleteByDniInputNode.value = ''
+     }
+ }
+
+ // Buscar alumno por nombre
+
+ var searchStudentInputNode = document.getElementById('searchText')
+ var searchStudentButton = document.getElementById('searchStudentButton')
+ var searchStudentList = document.getElementById('searchList')
+
+ searchStudentButton.onclick = searchStudent
+
+ function searchStudent(event){
+     searchStudentList.innerHTML = ''
+     let studentToSearch = searchStudentInputNode.value.toUpperCase()
+     for(var i = 0;i<newStudentList.length;i++){
+         let studentsArrayFirstName = newStudentList[i].firstName.toUpperCase()
+         let studentsArrayLastName = newStudentList[i].lastName.toUpperCase()
+         if(studentToSearch && (studentsArrayFirstName.indexOf(studentToSearch)!==-1 || studentsArrayLastName.indexOf(studentToSearch)!==-1)){
+            let newSearchedStudent = document.createElement('li')
+            newSearchedStudent.innerHTML = '<h2>'+newStudentList[i].firstName+'</h2>'+'<h2>'+newStudentList[i].lastName+'</h2>'+'<h3>DNI: '+newStudentList[i].dni+'</h3>'+'<h2>'+newStudentList[i].email+'</h2>'
+            newSearchedStudent.classList.add('list-group-item')
+            searchStudentList.appendChild(newSearchedStudent)
+            break
+         }else{
+            searchStudentList.innerHTML = ''
+         }
      }
  }

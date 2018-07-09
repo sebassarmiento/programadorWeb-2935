@@ -2,7 +2,7 @@ $('#email').blur(validate)
 
 function validate(){
     let emailInput = $(this)
-    if(emailInput[0].value && emailInput[0].value.indexOf('@')!==-1 && emailInput[0].value.indexOf('.')!==-1){
+    if(emailInput.val() && emailInput.val().indexOf('@')!==-1 && emailInput.val().indexOf('.')!==-1){
         emailInput.removeClass('is-invalid')
         emailInput.addClass('is-valid')
     }else{

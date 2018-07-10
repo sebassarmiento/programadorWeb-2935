@@ -111,8 +111,8 @@ console.log('Init app')
 //   inputJQNodes.val('Pato')
 // }
 
-var pepe = 0
+// var pepe = 0
 
-console.log(pepe++)
+// console.log(pepe++)
 
-console.log(++pepe)
+// console.log(++pepe)

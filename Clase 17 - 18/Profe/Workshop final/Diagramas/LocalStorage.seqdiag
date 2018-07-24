@@ -1,0 +1,16 @@
+Title: Guardado
+participant Usuario
+participant Router
+participant Layout
+participant Local Storage ctr
+participant LS
+Usuario->Router: a:link #/local-storage
+Router->Layout: .load() partial/local-storage.html
+Router->Local Storage ctr: .load() localStorgaeController.js
+Local Storage ctr->LS: getItem(peopleList)
+LS-->Local Storage ctr: people array
+Local Storage ctr->Layout: load people table
+Usuario->Layout: click delete button
+Layout->Local Storage ctr: splice(index,1)
+Local Storage ctr->LS: setItem(peopleList)
+Local Storage ctr->Layout: removeItem()

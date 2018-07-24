@@ -1,0 +1,22 @@
+Title: Personajes
+participant Usuario
+participant Router
+participant Layout
+participant People ctr
+participant API
+Usuario->Router: a:link #/people
+Router->Layout: .load() partial/people.html
+Router->People ctr: .load() peopleController.js
+People ctr->API: GET /people
+API-->People ctr: data.json
+People ctr->LS: getItem(peopleList)
+LS-->People ctr: people array
+People ctr->Layout: load people table
+Usuario->Layout: click add button
+Layout->People ctr: push(item)
+People ctr->LS: setItem(peopleList)
+People ctr->Layout: removeItem()
+Usuario->Layout: click showMore button
+People ctr->API: GET /people
+API-->People ctr: data.json
+People ctr->Layout: load more people table

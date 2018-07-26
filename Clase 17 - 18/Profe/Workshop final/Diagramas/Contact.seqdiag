@@ -1,0 +1,11 @@
+Title: Contact
+participant Usuario
+participant Router
+participant Layout
+participant Contact ctr
+Usuario->Router: a:link #/contact
+Router->Layout: .load() partial/contact.html
+Router->Contact ctr: .load() contactController.js
+Usuario->Layout: Escribe en input
+Layout-->Contact ctr: validateFields()
+Contact ctr->Layout: showValidation()

@@ -1,0 +1,6 @@
+Title: Home
+participant Usuario
+participant Router
+participant Layout
+Usuario->Router: a:link #
+Router->Layout: .load() partial/home.html
